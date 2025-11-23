@@ -1,51 +1,141 @@
-# Natural ou Fake Natty? Como Vencer na Era das IAs Generativas
+# 🧠 Natty or Not – IA que Avalia um *Shape* (Físico)
 
-## 🚀 Introdução
+Este projeto utiliza a API **Gemini (Google AI)** para analisar descrições físicas e emitir um veredito: **Natty** (natural) ou **Not** (provavelmente utilizando recursos externos 😅).
 
-> Woooow! Look at this 👀
+Ele foi desenvolvido para ser executado via terminal, usando **Node.js**, e retorna uma análise rápida e direta.
 
-Olá pessoal, Venilton da DIO aqui! Inspirado na hype _"Natty or Not"_ do fisiculturismo, este Lab da DIO te convida a conhecer o mundo das IAs Generativas, explorando o potencial dessas tendências tecnológicas incríveis!
+## 🚀 Funcionalidades
 
-## 🎯 Bora Pro Desafio!? Você Já Venceu 💪🤓
+  * Envia uma **descrição do *shape*** para a API Gemini.
+  * Recebe a análise em um formato estruturado:
+      * **Veredito:** `Natty` ou `Not`
+      * **Justificativa** curta
+  * Pode ser usado passando a descrição diretamente na **linha de comando**.
 
-### Objetivos
+## 📦 Requisitos
 
-1. **Explorar IAs Generativas**: Utilize essas tecnologias para criar conteúdos que sejam o mais realista possível. Seja criativo! Você pode produzir imagens, textos, áudios, vídeos ou combinações de tudo isso!
-1. **Potfólio de Projetos**:
-    1. Faça o "fork" deste repositório, criando uma cópia em seu GitHub pessoal;
-    2. Edite seu README com os detalhes do seu projeto, siga nosso [Template](#template) (é só copiar, colar e preencher);
-    3. Submeta o link do seu repositório na plataforma da DIO. Pronto, você acabou de fortalecer seu portfólio de projetos nos perfis do GitHub e DIO 🚀
-1. **Efeito de Rede**: Compartilhe seus resultados nas redes sociais com a hashtag **#LabDIONattyOrNot**. Não esqueça de nos marcar: [DIO](https://www.linkedin.com/school/dio-makethechange) e [falvojr](https://www.linkedin.com/in/falvojr).
+  * **Node.js** **18** ou superior.
+    > ⚠️ *Se estiver usando Node 16 ou anterior, você precisará instalar `node-fetch` manualmente.*
 
-### Template
+## 🔑 Criando sua API Key
 
-```markdown
-# Título do Projeto Extremamente Aesthetic ;)
+Para utilizar a API Gemini, você precisa de uma chave:
 
-## 📒 Descrição
-Breve descrição do seu projeto
+1.  Acesse o **Google AI Studio**:
+    [https://aistudio.google.com](https://aistudio.google.com)
+2.  Faça login.
+3.  Vá para a seção **API Keys**.
+4.  Crie uma nova chave de uso.
+5.  **Guarde o valor da chave** (você precisará dele na próxima etapa).
 
-## 🤖 Tecnologias Utilizadas
-Liste as IAs Generativas e outras ferramentas usadas
+## 📁 Instalação
 
-## 🧐 Processo de Criação
-Descreva como você criou o conteúdo
+1.  Clone o repositório:
 
-## 🚀 Resultados
-Apresente os resultados do seu projeto
+    ```bash
+    git clone https://github.com/LxcaszXD/lab-natty-or-not.git
+    ```
 
-## 💭 Reflexão (Opcional)
-Comente sobre o desafio de criar algo 'natty' com IA.
+2.  Entre na pasta do projeto:
+
+    ```bash
+    cd natty-or-not
+    ```
+
+## ⚙️ Configurando a Variável de Ambiente
+
+Você deve configurar sua chave como uma variável de ambiente chamada `API_KEY` antes de rodar o script.
+
+> ⚠️ **Substitua `SUA_API_KEY_AQUI` pela chave que você gerou.**
+
+  * **Windows (PowerShell):**
+    ```bash
+    $env:API_KEY="SUA_API_KEY_AQUI"
+    ```
+  * **Windows (CMD):**
+    ```bash
+    set API_KEY=SUA_API_KEY_AQUI
+    ```
+  * **Linux / Mac:**
+    ```bash
+    export API_KEY="SUA_API_KEY_AQUI"
+    ```
+    
+    **Para Verificar:**
+
+  * **Windows (PowerShell):**
+    ```bash
+    echo $env:API_KEY
+    ```
+  * **Windows (CMD):**
+    ```bash
+    echo %API_KEY%
+    ```
+  * **Linux / Mac:**
+    ```bash
+    echo $API_KEY
+    ```
+
+-----
+
+## ▶️ Como Rodar o Projeto
+
+### Rodando com a descrição padrão
+
+Se você rodar o script sem argumentos, ele usará uma descrição pré-definida no código.
+
+```bash
+node script.js
 ```
 
-### Exemplos e Insigths
+### Enviando uma descrição manualmente
 
-- [E-BOOK](/exemplos/E-BOOK.md)
-- [Podcast](/exemplos/PODCAST.md)
-- [Vídeo (Avatar Virtual)](/exemplos/VIDEO.md)
+Passe a descrição física como argumento, entre aspas:
 
-## Links Interessantes
+```bash
+node script.js "Homem 1.80m, 110kg, 5% BF, dorsal detalhada"
+```
 
-[Base10: If You’re Not First, You’re Last: How AI Becomes Mission Critical](https://base10.vc/post/generative-ai-mission-critical/)
+### Exemplo de Retorno
 
-![Base10's Trend Map Generative AI](https://github.com/digitalinnovationone/lab-natty-or-not/assets/730492/f4df26e8-f8f7-4419-8252-c69d73ea930c)
+```
+📌 Resultado:
+
+- Veredito: Not
+- Justificativa: níveis extremos de definição e volume...
+```
+
+-----
+
+## 🧩 Compatibilidade com Node 16 ou Inferior
+
+Se a sua versão do Node.js for **16 ou inferior**, você precisará instalar o `node-fetch`:
+
+1.  Instale a dependência:
+
+    ```bash
+    npm install node-fetch
+    ```
+
+2.  Adicione a linha de importação no topo do seu `script.js`:
+
+    ```javascript
+    import fetch from "node-fetch";
+    ```
+
+-----
+
+## 📜 Estrutura do Projeto
+
+```
+lab-natty-or-not/
+ └──README.md
+ └── script.js
+```
+
+## 🧠 Como Funciona
+
+1.  O script (`script.js`) captura a descrição (padrão ou fornecida via argumento).
+2.  O script envia o prompt formatado para o modelo **Gemini** através da API.
+3.  A API retorna o julgamento (`Natty` ou `Not`) e a justificativa.
+4.  O terminal exibe o resultado formatado.
